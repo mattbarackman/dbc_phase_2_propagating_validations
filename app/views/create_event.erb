@@ -1,0 +1,13 @@
+<%= erb :errors %>
+
+<form id="create_event_form" action="/events/create" method="post">
+  <input name="form[organizer_name]" type="text" placeholder="Your name..." 
+  <%= "value=#{@form_data[:organizer_name]}" if @form_data %> >
+  <input name="form[organizer_email]" type="text" placeholder="Your email..."
+  <%= "value=#{@form_data[:organizer_email]}" if @form_data %> >
+  <input name="form[title]" type="text" placeholder="The event's title..."
+  <%= "value=#{@form_data[:title]}" if @form_data %> >
+  <input name="form[date]" type="text" id="datepicker"
+  <%= "value=#{format_date(@form_data[:date])}" if @form_data %> >
+  <input type="submit" value="submit">
+</form>
